@@ -1,0 +1,23 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /serialApi
+spring:
+  application:
+    name: serial-api
+  profiles:
+    active: ${PROFILE:dev}
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_DISCOVERY_ADDR:47.113.120.239:8848}
+        namespace: ${NACOS_DISCOVERY_NAMESPACE:dev}
+      config:
+        server-addr: ${NACOS_CONFIG_ADDR:47.113.120.239:8848}
+        namespace: ${NACOS_CONFIG_NAMESPACE :dev}
+        file-extension: yml
